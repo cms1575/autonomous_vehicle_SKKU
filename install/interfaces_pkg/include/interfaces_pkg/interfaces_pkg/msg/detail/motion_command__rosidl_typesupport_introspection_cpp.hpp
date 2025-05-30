@@ -1,0 +1,1 @@
+/home/ryu/ros2_ws/build/interfaces_pkg/rosidl_typesupport_introspection_cpp/interfaces_pkg/msg/detail/motion_command__rosidl_typesupport_introspection_cpp.hpp

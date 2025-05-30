@@ -1,0 +1,1 @@
+/home/ryu/ros2_ws/build/interfaces_pkg/rosidl_typesupport_introspection_c/interfaces_pkg/msg/detail/key_point2_d_array__rosidl_typesupport_introspection_c.h
