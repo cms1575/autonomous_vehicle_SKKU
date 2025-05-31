@@ -49,7 +49,7 @@ class MotionPlanningNode(Node):
 
         self.current_lane_class = 'lane2'
         self.last_lane_change_time = self.get_clock().now()
-        self.lane_change_cooldown = 10.0
+        self.lane_change_cooldown = 20.0
 
         self.detection_sub = self.create_subscription(DetectionArray, self.sub_detection_topic, self.detection_callback, self.qos_profile)
         self.path_sub = self.create_subscription(PathPlanningResult, self.sub_path_topic, self.path_callback, self.qos_profile)
@@ -87,8 +87,10 @@ class MotionPlanningNode(Node):
             self.left_speed_command = 0
             self.right_speed_command = 0
         elif self.detection_data is not None : #and self.traffic_light_data.data == 'Red'
+            istraffic=False
             for detection in self.detection_data.detections:
                 if detection.class_name == 'traffic_light':
+                    istraffic=True
                     print("if detection.class_name == 'traffic_light':\n")
                     y_max = int(detection.bbox.center.position.y + detection.bbox.size.y / 2)
                     # if y_max > 130:
@@ -106,30 +108,30 @@ class MotionPlanningNode(Node):
                 self.steering_command = 0
             else:
                 target_slope = DMFL.calculate_slope_between_points(self.path_data[-10], self.path_data[-1])
-                if -8 < target_slope < 8:
+
+                # 차선 변경 후 10초 이내인지 확인
+                now = self.get_clock().now()
+                elapsed = (now - self.last_lane_change_time).nanoseconds * 1e-9
+                delta = 3 if elapsed < self.lane_change_cooldown else 1  # 증가/감소량
+                st_max = 10 if elapsed < self.lane_change_cooldown else 10  # 증가/감소량
+                
+
+
+                if -10 < target_slope < 10:
                     self.steering_command = 0
-                elif target_slope > 0 and self.steering_command < 7:
-                    self.steering_command += 1
-                elif target_slope < 0 and self.steering_command > -7:
-                    self.steering_command -= 1
+                elif target_slope > 0 and self.steering_command < st_max:
+                    self.steering_command += delta
+                elif target_slope < 0 and self.steering_command > -(st_max):
+                    self.steering_command -= delta
 
-            self.left_speed_command = 150
-            self.right_speed_command = 150
+                if elapsed < self.lane_change_cooldown:
+                    self.left_speed_command = 180
+                    self.right_speed_command = 180
+                else:
+                    self.left_speed_command = 255
+                    self.right_speed_command = 255
+            
 
-        else:
-            if self.path_data is None:
-                self.steering_command = 0
-            else:
-                target_slope = DMFL.calculate_slope_between_points(self.path_data[-10], self.path_data[-1])
-                if -8 < target_slope < 8:
-                    self.steering_command = 0
-                elif target_slope > 0 and self.steering_command < 7:
-                    self.steering_command += 1
-                elif target_slope < 0 and self.steering_command > -7:
-                    self.steering_command -= 1
-
-            self.left_speed_command = 150
-            self.right_speed_command = 150
 
         self.get_logger().info(f"steering: {self.steering_command}, gradient: {target_slope}, left_speed: {self.left_speed_command}, right_speed: {self.right_speed_command}")
 

@@ -21,7 +21,7 @@ PUB_TOPIC_NAME = 'image_raw'
 DATA_SOURCE = 'camera'
 
 # 카메라(웹캠) 장치 번호 (ls /dev/video* 명령을 터미널 창에 입력하여 확인)
-CAM_NUM = 2
+CAM_NUM = 3
 
 # 이미지 데이터가 들어있는 디렉토리의 경로를 입력
 IMAGE_DIRECTORY_PATH = 'src/camera_perception_pkg/camera_perception_pkg/lib/Collected_Datasets/sample_dataset'
@@ -33,7 +33,7 @@ VIDEO_FILE_PATH = 'src/camera_perception_pkg/camera_perception_pkg/lib/Collected
 SHOW_IMAGE = True
 
 # 이미지 발행 주기 (초) - 소수점 필요 (int형은 반영되지 않음)
-TIMER = 0.03
+TIMER = 0.01
 #----------------------------------------------
 
 class ImagePublisherNode(Node):
