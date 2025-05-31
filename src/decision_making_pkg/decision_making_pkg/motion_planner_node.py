@@ -113,11 +113,11 @@ class MotionPlanningNode(Node):
                 now = self.get_clock().now()
                 elapsed = (now - self.last_lane_change_time).nanoseconds * 1e-9
                 delta = 3 if elapsed < self.lane_change_cooldown else 1  # 증가/감소량
-                st_max = 10 if elapsed < self.lane_change_cooldown else 10  # 증가/감소량
+                st_max = 10 if elapsed < self.lane_change_cooldown else 8  # 증가/감소량
                 
 
 
-                if -10 < target_slope < 10:
+                if -13 < target_slope < 13:
                     self.steering_command = 0
                 elif target_slope > 0 and self.steering_command < st_max:
                     self.steering_command += delta
@@ -125,11 +125,11 @@ class MotionPlanningNode(Node):
                     self.steering_command -= delta
 
                 if elapsed < self.lane_change_cooldown:
-                    self.left_speed_command = 180
-                    self.right_speed_command = 180
+                    self.left_speed_command = 150
+                    self.right_speed_command = 150
                 else:
-                    self.left_speed_command = 255
-                    self.right_speed_command = 255
+                    self.left_speed_command = 240
+                    self.right_speed_command = 240
             
 
 
