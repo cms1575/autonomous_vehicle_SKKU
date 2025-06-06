@@ -6,8 +6,8 @@
 static int target_speed = 50;
 
 //모터 드라이버 IN1,IN2에 연결하는 아두이노 핀번호 입력 (모터가 반대로 동작하면 순서를 IN2,IN1 순서로 입력)
-static int test_motor1 = 3;
-static int test_motor2 = 4;
+static int test_motor1 = 4;
+static int test_motor2 = 5;
 
 
 //여기서부터는 건드릴 필요 없음.

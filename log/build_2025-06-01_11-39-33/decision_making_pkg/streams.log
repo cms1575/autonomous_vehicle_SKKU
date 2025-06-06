@@ -1,0 +1,18 @@
+[1.903s] Invoking command in '/home/ryu/ros2_ws/build/decision_making_pkg': PYTHONPATH=/home/ryu/ros2_ws/build/decision_making_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ryu/ros2_ws/install/decision_making_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ryu/ros2_ws/build/decision_making_pkg/build --no-deps symlink_data
+[2.170s] running develop
+[2.336s] running egg_info
+[2.336s] writing decision_making_pkg.egg-info/PKG-INFO
+[2.336s] writing dependency_links to decision_making_pkg.egg-info/dependency_links.txt
+[2.336s] writing entry points to decision_making_pkg.egg-info/entry_points.txt
+[2.336s] writing requirements to decision_making_pkg.egg-info/requires.txt
+[2.336s] writing top-level names to decision_making_pkg.egg-info/top_level.txt
+[2.339s] reading manifest file 'decision_making_pkg.egg-info/SOURCES.txt'
+[2.339s] writing manifest file 'decision_making_pkg.egg-info/SOURCES.txt'
+[2.341s] running build_ext
+[2.341s] Creating /home/ryu/ros2_ws/install/decision_making_pkg/lib/python3.10/site-packages/decision-making-pkg.egg-link (link to .)
+[2.342s] Installing motion_planner_node script to /home/ryu/ros2_ws/install/decision_making_pkg/lib/decision_making_pkg
+[2.342s] Installing path_planner_node script to /home/ryu/ros2_ws/install/decision_making_pkg/lib/decision_making_pkg
+[2.343s] 
+[2.343s] Installed /home/ryu/ros2_ws/build/decision_making_pkg
+[2.343s] running symlink_data
+[2.394s] Invoked command in '/home/ryu/ros2_ws/build/decision_making_pkg' returned '0': PYTHONPATH=/home/ryu/ros2_ws/build/decision_making_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ryu/ros2_ws/install/decision_making_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ryu/ros2_ws/build/decision_making_pkg/build --no-deps symlink_data

@@ -1,0 +1,18 @@
+[3.039s] Invoking command in '/home/ryu/ros2_ws/build/debug_pkg': PYTHONPATH=/home/ryu/ros2_ws/build/debug_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ryu/ros2_ws/install/debug_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ryu/ros2_ws/build/debug_pkg/build --no-deps symlink_data
+[3.806s] running develop
+[4.191s] running egg_info
+[4.194s] writing debug_pkg.egg-info/PKG-INFO
+[4.194s] writing dependency_links to debug_pkg.egg-info/dependency_links.txt
+[4.194s] writing entry points to debug_pkg.egg-info/entry_points.txt
+[4.194s] writing requirements to debug_pkg.egg-info/requires.txt
+[4.194s] writing top-level names to debug_pkg.egg-info/top_level.txt
+[4.196s] reading manifest file 'debug_pkg.egg-info/SOURCES.txt'
+[4.202s] writing manifest file 'debug_pkg.egg-info/SOURCES.txt'
+[4.213s] running build_ext
+[4.213s] Creating /home/ryu/ros2_ws/install/debug_pkg/lib/python3.10/site-packages/debug-pkg.egg-link (link to .)
+[4.213s] Installing path_visualizer_node script to /home/ryu/ros2_ws/install/debug_pkg/lib/debug_pkg
+[4.213s] Installing yolov8_visualizer_node script to /home/ryu/ros2_ws/install/debug_pkg/lib/debug_pkg
+[4.213s] 
+[4.213s] Installed /home/ryu/ros2_ws/build/debug_pkg
+[4.214s] running symlink_data
+[4.461s] Invoked command in '/home/ryu/ros2_ws/build/debug_pkg' returned '0': PYTHONPATH=/home/ryu/ros2_ws/build/debug_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ryu/ros2_ws/install/debug_pkg/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ryu/ros2_ws/build/debug_pkg/build --no-deps symlink_data
