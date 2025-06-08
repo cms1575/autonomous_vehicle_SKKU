@@ -33,6 +33,7 @@ class ObjectDetection(Node):
         self.subscriber = self.create_subscription(LaserScan, SUB_TOPIC_NAME, self.lidar_callback, self.qos_profile)
         self.publisher = self.create_publisher(Bool, PUB_TOPIC_NAME, self.qos_profile) 
 
+        #self.detection_checker = LPFL.StabilityDetector(consec_count=3) # 연속적으로 몇 번 감지 여부를 확인할지 설정
         self.detection_checker = LPFL.StabilityDetector(consec_count=3) # 연속적으로 몇 번 감지 여부를 확인할지 설정
 
 
@@ -40,17 +41,25 @@ class ObjectDetection(Node):
 
     def lidar_callback(self, msg):
          
-        start_angle = 250  # 원하는 각도 범위의 시작 값 (265)
-        end_angle = 272 # 원하는 각도 범위의 끝 값 (272)
+         #주차 전용 라이다 값.
+        start_angle = 270  # 원하는 각도 범위의 시작 값 (270)
+        end_angle = 275 # 원하는 각도 범위의 끝 값 (272)
         
         range_min = 0.2  # 원하는 거리 범위의 최소값 [m]
         range_max = 2.5  # 원하는 거리 범위의 최대값 [m]
+
+        #장애물 전용 라이다 값.
+        # start_angle = 270  # 원하는 각도 범위의 시작 값 (265)
+        # end_angle = 280  # 원하는 각도 범위의 끝 값 (272)
+        
+        # range_min = 0.2  # 원하는 거리 범위의 최소값 [m]
+        # range_max = 1.5  # 원하는 거리 범위의 최대값 [m]
 
         ranges = msg.ranges
 
 
         detected = LPFL.detect_object(ranges=ranges, start_angle=start_angle, end_angle=end_angle, range_min=range_min, range_max=range_max)
-        self.get_logger().info(f'sibal: {detected}') 
+        #self.get_logger().info(f'sibal: {detected}') 
         # ranges는 라이다 센서값 입력                                                        
 
         # 각도 범위 지정

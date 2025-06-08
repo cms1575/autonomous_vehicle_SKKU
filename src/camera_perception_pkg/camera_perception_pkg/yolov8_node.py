@@ -53,8 +53,9 @@ class Yolov8Node(LifecycleNode):
         
         #---------------Variable Setting---------------
         # 딥러닝 모델 pt 파일명 작성
-        #self.declare_parameter("model", "yolov8m.pt")
-        self.declare_parameter("model", "best.pt")
+        self.declare_parameter("model", "parking.pt") #주차용 
+        #self.declare_parameter("model", "best.pt") #일반 주행용
+        
         
         # 추론 하드웨어 선택 (cpu / gpu) 
         #self.declare_parameter("device", "cpu")
